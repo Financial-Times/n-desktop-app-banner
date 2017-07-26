@@ -1,0 +1,86 @@
+$o-colors-is-silent: false;
+@import "o-colors/main";
+$o-icons-is-silent: false;
+@import "o-icons/main";
+$o-typography-is-silent: false;
+@import "o-typography/main";
+
+$teal: oColorsGetPaletteColor('teal');
+$white: oColorsGetPaletteColor('white');
+.n-app-banner {
+	@include oTypographySans($scale: 1);
+
+	background: $teal;
+	bottom: 0;
+	color: oColorsGetTextColor($teal);
+	left: 0;
+	padding: 40px 0;
+	position: fixed;
+	width: 100%;
+	z-index: 99;
+}
+
+.n-app-banner__container {
+	align-items: center;
+	display: flex;
+	flex-direction: row;
+}
+
+.n-app-banner__device {
+	margin-top: -20px;
+	margin-bottom: -195px;
+}
+
+.n-app-banner__strapline {
+	.enhanced & {
+		margin-left: 20px;
+	}
+}
+
+.n-app-banner__links {
+	line-height: 0;
+}
+.n-app-banner__app-link {
+	display: inline-block;
+	margin-left: 20px;
+}
+
+.n-app-banner__links-and-email {
+  align-items: center;
+	display: flex;
+
+}
+.n-app-banner__email-field {
+	display: none;
+	margin-bottom: 0;
+	margin-left: 20px;
+
+	.core & {
+		display: block;
+	}
+
+	.o-forms__text {
+		margin-top: 0;
+    width: 250px;
+	}
+}
+
+.n-app-banner__button {
+	margin-left: 20px;
+}
+.n-app-banner__button__send {
+	display: none;
+}
+
+.n-app-banner__close {
+	@include oIconsGetIcon('cross', $white, 25);
+	display: none;
+	cursor: pointer;
+	position: absolute;
+	right: 0;
+	top: -20px;
+
+	.enhanced & {
+		display: block;
+	}
+}

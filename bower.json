@@ -1,0 +1,25 @@
+{
+  "name": "n-desktop-app-banner",
+  "homepage": "https://github.com/Financial-Times/n-desktop-app-banner",
+  "description": "A banner to show new users to make them aware of the native mobile apps.",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "main": [
+    "main.scss",
+    "main.js"
+  ],
+  "ignore": [
+    ".babelrc"
+  ],
+  "dependencies": {
+    "o-icons": "^5.4.0",
+    "o-colors": "^4.0.5",
+    "o-typography": "^5.1.0",
+    "n-ui-foundations": "^2.4.0"
+  }
+}
