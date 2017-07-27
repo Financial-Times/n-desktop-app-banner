@@ -1,47 +1,56 @@
-<div class="n-app-banner">
-	<div class="o-grid-container n-app-banner__container">
+<div class="n-app-banner js-n-app-banner-wrapper">
+	<div class="o-grid-container">
 		<img alt=""
-			class="n-app-banner__device n-util-hide-core"
-			src="https://www.ft.com/__origami/service/image/v2/images/raw/http%3A%2F%2Fwww.ft.com%2F__assets%2Fcreatives%2Fonboarding%2Fios-app.png?source=n-ui&width=120">
-		<span class="n-app-banner__strapline">
-			<strong>Read the FT app anywhere</strong>, even when you&rsquo;re offline.
-		</span>
-		<form action="" method="POST" class="n-app-banner__links-and-email">
-			<span class="n-app-banner__links">
-				<a
-					href="https://itunes.apple.com/app/apple-store/id1200842933?pt=246269&ct=ft-com-smart-banner&mt=8"
-					class="n-app-banner__app-link"
-					target="_blank"
-					aria-label="Open the FT app for an Apple device"
-					title="Open the FT app for an Apple device"
-					data-trackable="open-ios-app"
-					data-tracking-name="ios_app">
-						<img src="https://www.ft.com/__origami/service/image/v2/images/raw/https%3A%2F%2Fwww.ft.com%2F__assets%2Fcreatives%2Fapp-link%2Fapple-app-store-v2.png?source=next&height=40&fit=contain" alt="Download on the App Store">
-					</a>
-				<a
-					href="https://play.google.com/store/apps/details?id=com.ft.news"
-					class="n-app-banner__app-link"
-					target="_blank"
-					aria-label="Open the FT app for an Android device on the Google Play Store"
-					title="Open the FT app for an Android device on the Google Play Store"
-					data-trackable="open-android-app"
-					data-tracking-name="android_app">
-						<img src="https://www.ft.com/__origami/service/image/v2/images/raw/https%3A%2F%2Fwww.ft.com%2F__assets%2Fcreatives%2Fapp-link%2Fgoogle-play-badge-v2.png?source=next&height=40&fit=contain" alt="Get it on Google Play">
-					</a>
+		class="n-app-banner__device n-util-hide-core"
+		src="https://www.ft.com/__origami/service/image/v2/images/raw/http%3A%2F%2Fwww.ft.com%2F__assets%2Fcreatives%2Fonboarding%2Fios-app.png?source=n-ui&width=120">
+		
+		<div class="n-app-banner__container" data-o-grid-colspan="12 XL10 XLoffset1">
+			<span class="n-app-banner__strapline">
+				<strong>Read the FT app anywhere</strong>, even when you&rsquo;re offline.
 			</span>
-			<span class="n-app-banner__email-field o-forms">
-				<label for="email" class="n-util-visually-hidden">Email Address: </label>
-				<input type="text" class="o-forms__text" name="email" id="email" placeholder="Email Address" />
-			</span>
-			<span class="n-app-banner__button">
-				<button type="submit" class="o-buttons o-buttons--big o-buttons--inverse">
-					<span class="n-app-banner__button__email">Email</span>
-					<span class="n-app-banner__button__send">Send</span>
-					me a reminder
-				</button>
-			</span>
-		</form>
-		<i class="n-app-banner__close"></i>
+			<form action="" method="POST" class="n-app-banner__form js-n-app-banner-form">
+				<span class="n-app-banner__links">
+					<a
+						href="https://itunes.apple.com/app/apple-store/id1200842933?pt=246269&ct=ft-com-smart-banner&mt=8"
+						class="n-app-banner__app-link"
+						target="_blank"
+						aria-label="Open the FT app for an Apple device"
+						title="Open the FT app for an Apple device"
+						data-trackable="open-ios-app"
+						data-tracking-name="ios_app">
+							<img src="https://www.ft.com/__origami/service/image/v2/images/raw/https%3A%2F%2Fwww.ft.com%2F__assets%2Fcreatives%2Fapp-link%2Fapple-app-store-v2.png?source=next&height=40&fit=contain" alt="Download on the App Store">
+						</a>
+					<a
+						href="https://play.google.com/store/apps/details?id=com.ft.news"
+						class="n-app-banner__app-link"
+						target="_blank"
+						aria-label="Open the FT app for an Android device on the Google Play Store"
+						title="Open the FT app for an Android device on the Google Play Store"
+						data-trackable="open-android-app"
+						data-tracking-name="android_app">
+							<img src="https://www.ft.com/__origami/service/image/v2/images/raw/https%3A%2F%2Fwww.ft.com%2F__assets%2Fcreatives%2Fapp-link%2Fgoogle-play-badge-v2.png?source=next&height=40&fit=contain" alt="Get it on Google Play">
+						</a>
+				</span>
+				<span class="n-app-banner__email-field o-forms js-n-app-banner-email-field">
+					<label for="email" class="n-util-visually-hidden">Email Address: </label>
+					<input type="email" class="o-forms__text" name="email" id="email" placeholder="Email Address" required />
+					<div class="o-forms__message o-forms__message--error js-n-app-banner-error-message"></div>
+				</span>
+				<span class="n-app-banner__success">
+					<i class="n-app-banner__success__tick"></i>
+					<strong>Thanks.</strong> We&rsquo;ve sent you a link to the FT app.
+				</span>
+				<span class="n-app-banner__button">
+					<button type="submit" class="o-buttons o-buttons--big o-buttons--inverse js-n-app-banner-button">
+						<span class="n-app-banner__button__email">Email</span>
+						<span class="n-app-banner__button__send">Send</span>
+						me a reminder
+					</button>
+				</span>
+			</form>
+		</div>
+
+		<i class="n-app-banner__close js-app-banner-close"></i>
 	</div>
 </div>
 
