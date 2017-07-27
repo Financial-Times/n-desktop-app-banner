@@ -1,10 +1,11 @@
+/* eslint no-console:0 */
 'use strict';
 
-const express = require('@financial-times/n-internal-tool');
-const fixtures = require('./fixtures.json');
 const chalk = require('chalk');
 const errorHighlight = chalk.bold.red;
 const highlight = chalk.bold.green;
+
+const express = require('@financial-times/n-internal-tool');
 
 const app = module.exports = express({
 	name: 'public',
@@ -14,7 +15,7 @@ const app = module.exports = express({
 	withNavigation: false,
 	withAnonMiddleware: false,
 	hasHeadCss: false,
-	viewsDirectory: '/demos',
+	viewsDirectory: '/demos/templates',
 	partialsDirectory: process.cwd(),
 	directory: process.cwd(),
 	demo: true,
@@ -22,10 +23,12 @@ const app = module.exports = express({
 });
 
 app.get('/', (req, res) => {
-	res.render('demo', Object.assign({
-		title: 'Test desktop-app-banner App'
-	}, fixtures));
+	res.render('index',{ layout: 'wrapper', title: 'Demo' });
 });
+
+const PORT = process.env.PORT || 5005;
+
+const listen = app.listen(PORT);
 
 function runPa11yTests () {
 	const spawn = require('child_process').spawn;
@@ -44,7 +47,9 @@ function runPa11yTests () {
 	});
 }
 
-const listen = app.listen(5005);
+listen
+	.then(() => console.log(`demo running on port ${PORT}`))
+	.catch(error => console.log(error));
 
 if (process.env.PA11Y === 'true') {
 	listen.then(runPa11yTests);
