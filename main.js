@@ -17,7 +17,6 @@ export default class DesktopAppBanner {
 
 	bindEvents () {
 		this.closeLink.addEventListener('click', this.handleCloseClick.bind(this));
-		this.emailButton.addEventListener('click', this.handleEmailClick.bind(this));
 		this.form.addEventListener('submit', this.handleFormSubmit.bind(this));
 	}
 
@@ -34,27 +33,20 @@ export default class DesktopAppBanner {
 		this.wrapper.className += ' is-dismissed';
 	}
 
-	handleEmailClick (e) {
-		// Only intercept if the user is yet to see the email field.
-		if (!this.isEnteringEmail) {
-			this.wrapper.className += ' is-entering-email';
-			this.isEnteringEmail = true;
-
-			e.preventDefault();
-			return false;
-		}
-	}
-
 	handleFormSubmit (e) {
 		this.emailButton.disabled = 'disabled';
-		// TODO: send the request
 
-		// TODO: success handling
-		// this.wrapper.className += ' has-sent';
-
-		// TODO: error handling
-		// this.errorMessage.innerHTML = '<p>Some error message here</p>';
-		// this.emailButton.disabled = false;
+		fetch(this.form.action, { method: 'POST' })
+			.then((response) => {
+				if (response.status !== 200) {
+					throw new Error('Oops... Something went wrong. Please try again.');
+				}
+				this.wrapper.className += ' has-sent';
+			})
+			.catch((e) => {
+				this.errorMessage.innerHTML = `<p>${e.message}</p>`;
+				this.emailButton.disabled = false;
+			});
 
 		e.preventDefault();
 		return false;

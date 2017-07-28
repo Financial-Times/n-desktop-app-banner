@@ -3,12 +3,12 @@
 		<img alt=""
 		class="n-app-banner__device n-util-hide-core"
 		src="https://www.ft.com/__origami/service/image/v2/images/raw/http%3A%2F%2Fwww.ft.com%2F__assets%2Fcreatives%2Fonboarding%2Fios-app.png?source=n-ui&width=120">
-		
+
 		<div class="n-app-banner__container" data-o-grid-colspan="12 XL10 XLoffset1">
 			<span class="n-app-banner__strapline">
 				<strong>Read the FT app anywhere</strong>, even when you&rsquo;re offline.
 			</span>
-			<form action="" method="POST" class="n-app-banner__form js-n-app-banner-form">
+			<form action="/send-email" method="POST" class="n-app-banner__form js-n-app-banner-form">
 				<span class="n-app-banner__links">
 					<a
 						href="https://itunes.apple.com/app/apple-store/id1200842933?pt=246269&ct=ft-com-smart-banner&mt=8"
@@ -31,22 +31,16 @@
 							<img src="https://www.ft.com/__origami/service/image/v2/images/raw/https%3A%2F%2Fwww.ft.com%2F__assets%2Fcreatives%2Fapp-link%2Fgoogle-play-badge-v2.png?source=next&height=40&fit=contain" alt="Get it on Google Play">
 						</a>
 				</span>
-				<span class="n-app-banner__email-field o-forms js-n-app-banner-email-field">
-					<label for="email" class="n-util-visually-hidden">Email Address: </label>
-					<input type="email" class="o-forms__text" name="email" id="email" placeholder="Email Address" required />
-					<div class="o-forms__message o-forms__message--error js-n-app-banner-error-message"></div>
-				</span>
 				<span class="n-app-banner__success">
 					<i class="n-app-banner__success__tick"></i>
 					<strong>Thanks.</strong> We&rsquo;ve sent you a link to the FT app.
 				</span>
 				<span class="n-app-banner__button">
 					<button type="submit" class="o-buttons o-buttons--big o-buttons--inverse js-n-app-banner-button">
-						<span class="n-app-banner__button__email">Email</span>
-						<span class="n-app-banner__button__send">Send</span>
-						me a reminder
+						Email me a reminder
 					</button>
 				</span>
+				<div class="o-forms__message js-n-app-banner-error-message"></div>
 			</form>
 		</div>
 

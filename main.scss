@@ -23,17 +23,17 @@ $white: oColorsGetPaletteColor('white');
 	transition: bottom 1s ease;
 	width: 100%;
 	z-index: 99;
-	
+
 	&.is-dismissed {
 		bottom: -150px;
 	}
-	
-	.o-forms__message--error {
-		left: 10px;
+
+	.o-forms__message {
+		color: oColorsGetPaletteColor('crimson');
+		right: 0;
 		position: absolute;
-		top: 37px;
-		width: 255px;
-		
+		top: 50px;
+
 		p {
 			@include oTypographySans($scale: -1);
 		}
@@ -63,8 +63,8 @@ $white: oColorsGetPaletteColor('white');
 
 .n-app-banner__links {
 	line-height: 0;
-	
-	.is-entering-email & {
+
+	.has-sent & {
 		display: none;
 	}
 }
@@ -78,25 +78,6 @@ $white: oColorsGetPaletteColor('white');
 	display: flex;
 	margin-bottom: 0;
 }
-.n-app-banner__email-field {
-	display: none;
-	margin-bottom: 0;
-	margin-left: 20px;
-	position: relative;
-
-	.core &,
-	.is-entering-email & {
-		display: block;
-	}
-	.has-sent & {
-		display: none;
-	}
-
-	.o-forms__text {
-		margin-top: 0;
-    width: 275px;
-	}
-}
 
 .n-app-banner__button {
 	margin-left: 20px;
@@ -105,24 +86,13 @@ $white: oColorsGetPaletteColor('white');
 		display: none;
 	}
 }
-.n-app-banner__button__email {
-	.is-entering-email & {
-		display: none;
-	}
-}
-.n-app-banner__button__send {
-	display: none;
-	.is-entering-email & {
-		display: inline-block;
-	}
-}
 
 .n-app-banner__success {
 	@include oTypographySans($scale: -1);
 	display: none;
 	padding-left: 25px;
 	position: relative;
-	
+
 	&:before {
 		@include oIconsGetIcon('tick', $white, 25);
 		display: inline-block;
@@ -131,7 +101,7 @@ $white: oColorsGetPaletteColor('white');
 		position: absolute;
 		top: -5px;
 	}
-	
+
 	.has-sent & {
 		display: block;
 	}
