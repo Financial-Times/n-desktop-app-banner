@@ -1,16 +1,11 @@
-const OForms = require('o-forms');
-
 export default class DesktopAppBanner {
 
 	constructor () {
 		this.closeLink = document.querySelector('.js-app-banner-close');
 		this.emailButton = document.querySelector('.js-n-app-banner-button');
-		this.emailField = document.querySelector('.js-n-app-banner-email-field');
 		this.errorMessage = document.querySelector('.js-n-app-banner-error-message');
 		this.form = document.querySelector('.js-n-app-banner-form');
 		this.wrapper = document.querySelector('.js-n-app-banner-wrapper');
-
-		new OForms(this.form);
 
 		this.bindEvents();
 	}
@@ -34,9 +29,18 @@ export default class DesktopAppBanner {
 	}
 
 	handleFormSubmit (e) {
-		this.emailButton.disabled = 'disabled';
+		if (!this.emailButton.disabled) {
+			this.emailButton.disabled = 'disabled';
 
-		fetch(this.form.action, { method: 'POST' })
+			this.submitForm();
+		}
+
+		e.preventDefault();
+		return false;
+	}
+
+	submitForm () {
+		return fetch(this.form.action, { method: 'POST' })
 			.then((response) => {
 				if (response.status !== 200) {
 					throw new Error('Oops... Something went wrong. Please try again.');
@@ -47,9 +51,6 @@ export default class DesktopAppBanner {
 				this.errorMessage.innerHTML = `<p>${e.message}</p>`;
 				this.emailButton.disabled = false;
 			});
-
-		e.preventDefault();
-		return false;
 	}
 
 };

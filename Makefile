@@ -4,9 +4,6 @@ node_modules/@financial-times/n-gage/index.mk:
 
 -include node_modules/@financial-times/n-gage/index.mk
 
-unit-test:
-	mocha --recursive --reporter spec tests
-
 demo-build:
 	webpack --config demos/webpack.config.js
 	@$(DONE)
@@ -18,6 +15,9 @@ a11y: demo-build
 	@node .pa11yci.js
 	@PA11Y=true node demos/app
 	@$(DONE)
+
+unit-test:
+	karma start
 
 test: verify unit-test
 	make a11y
