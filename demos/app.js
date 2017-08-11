@@ -26,6 +26,10 @@ app.get('/', (req, res) => {
 	res.render('index',{ layout: 'wrapper', title: 'Demo' });
 });
 
+app.post('/email-app-links', (req, res) => {
+	res.json({});
+});
+
 const PORT = process.env.PORT || 5005;
 
 const listen = app.listen(PORT);
