@@ -11,7 +11,7 @@ export default class DesktopAppBanner {
 			detail: {
 				category: 'component',
 				action: 'view',
-				messaging: 'desktop-app-banner-view'
+				messaging: 'desktop-app-banner'
 			},
 			bubbles: true
 		}));
@@ -27,8 +27,9 @@ export default class DesktopAppBanner {
 	handleCloseClick () {
 		const event = new CustomEvent('oTracking.event', {
 				detail: {
-					category: 'desktop-app-banner',
-					action: 'dismiss'
+					category: 'component',
+					action: 'close',
+					messaging: 'desktop-app-banner'
 				},
 				bubbles: true
 			});
@@ -45,7 +46,7 @@ export default class DesktopAppBanner {
 				detail: {
 					category: 'form',
 					action: 'submit',
-					messaging: 'desktop-app-banner-form-submit'
+					messaging: 'desktop-app-banner'
 				},
 				bubbles: true
 			}));
