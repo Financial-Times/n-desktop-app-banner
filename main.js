@@ -7,6 +7,15 @@ export default class DesktopAppBanner {
 		this.form = document.querySelector('.js-n-app-banner-form');
 		this.wrapper = document.querySelector('.js-n-app-banner-wrapper');
 
+		document.body.dispatchEvent(new CustomEvent('oTracking.event', {
+			detail: {
+				category: 'component',
+				action: 'view',
+				messaging: 'desktop-app-banner-view'
+			},
+			bubbles: true
+		}));
+
 		this.bindEvents();
 	}
 
@@ -31,6 +40,15 @@ export default class DesktopAppBanner {
 	handleFormSubmit (e) {
 		if (!this.emailButton.disabled) {
 			this.emailButton.disabled = 'disabled';
+
+			document.body.dispatchEvent(new CustomEvent('oTracking.event', {
+				detail: {
+					category: 'form',
+					action: 'submit',
+					messaging: 'desktop-app-banner-form-submit'
+				},
+				bubbles: true
+			}));
 
 			this.submitForm();
 		}
