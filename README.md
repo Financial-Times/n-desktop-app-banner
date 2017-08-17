@@ -10,7 +10,7 @@ Bower component/Node module for the desktop app banner shown to new users.
 ### Template
 
 ```
-{{ n-desktop-app-banner/templates/banner }}
+{{> n-desktop-app-banner/templates/banner }}
 ```
 
 ### CSS
