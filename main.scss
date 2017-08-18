@@ -1,12 +1,7 @@
-$o-buttons-is-silent: false;
 @import "o-buttons/main";
-$o-colors-is-silent: false;
 @import "o-colors/main";
-$o-forms-is-silent: false;
 @import "o-forms/main";
-$o-icons-is-silent: false;
 @import "o-icons/main";
-$o-typography-is-silent: false;
 @import "o-typography/main";
 
 $teal: oColorsGetPaletteColor('teal');
@@ -23,17 +18,6 @@ $white: oColorsGetPaletteColor('white');
 	transition: bottom 1s ease;
 	width: 100%;
 	z-index: 99;
-
-	.o-forms__message {
-		color: oColorsGetPaletteColor('crimson');
-		right: 0;
-		position: absolute;
-		top: 50px;
-
-		p {
-			@include oTypographySans($scale: -1);
-		}
-	}
 }
 
 .n-app-banner__container {
@@ -78,10 +62,23 @@ $white: oColorsGetPaletteColor('white');
 }
 
 .n-app-banner__button {
+	@include oButtons($size: big, $theme: inverse);
 	margin-left: 20px;
 
 	.has-sent & {
 		display: none;
+	}
+}
+
+.n-app-banner__error-message {
+	@include oFormsMessage();
+	color: oColorsGetPaletteColor('crimson');
+	right: 0;
+	position: absolute;
+	top: 50px;
+
+	p {
+		@include oTypographySans($scale: -1);
 	}
 }
 
