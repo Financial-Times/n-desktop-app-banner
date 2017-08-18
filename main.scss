@@ -24,10 +24,6 @@ $white: oColorsGetPaletteColor('white');
 	width: 100%;
 	z-index: 99;
 
-	&.is-dismissed {
-		bottom: -150px;
-	}
-
 	.o-forms__message {
 		color: oColorsGetPaletteColor('crimson');
 		right: 0;
@@ -45,12 +41,14 @@ $white: oColorsGetPaletteColor('white');
 	display: flex;
 	flex-direction: row;
 	height: 40px;
+	margin-left: 80px;
 }
 
 .n-app-banner__device {
-	float: left;
+	left: 0;
 	margin-top: -20px;
 	margin-bottom: -195px;
+	position: absolute;
 }
 
 .n-app-banner__strapline {

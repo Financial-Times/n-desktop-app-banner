@@ -57,7 +57,7 @@ describe('DesktopAppBanner', () => {
 
 		desktopAppBanner.closeLink.dispatchEvent(clickEvent);
 
-		expect(desktopAppBanner.wrapper.className).to.contain('is-dismissed');
+		expect(desktopAppBanner.wrapper.style).to.have.property('bottom');
 	});
 
 	context('making the call to send the email', () => {

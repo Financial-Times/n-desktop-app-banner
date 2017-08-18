@@ -35,7 +35,7 @@ export default class DesktopAppBanner {
 			});
 		document.body.dispatchEvent(event);
 
-		this.wrapper.className += ' is-dismissed';
+		this.wrapper.style.bottom = `-${this.wrapper.clientHeight}px`;
 	}
 
 	handleFormSubmit (e) {
