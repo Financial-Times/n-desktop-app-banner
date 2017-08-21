@@ -89,7 +89,7 @@ $white: oColorsGetPaletteColor('white');
 	position: relative;
 
 	&:before {
-		@include oIconsGetIcon('tick', $white, 25);
+		@include oIconsGetIcon('tick', $white, 25, $iconset-version: 1);
 		display: inline-block;
 		content: '';
 		left: 0;
@@ -103,7 +103,7 @@ $white: oColorsGetPaletteColor('white');
 }
 
 .n-app-banner__close {
-	@include oIconsGetIcon('cross', $white, 25);
+	@include oIconsGetIcon('cross', $white, 25, $iconset-version: 1);
 	display: none;
 	cursor: pointer;
 	position: absolute;
