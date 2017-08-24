@@ -62,7 +62,7 @@ export default class DesktopAppBanner {
 		return fetch(this.form.action, { method: 'POST' })
 			.then((response) => {
 				if (response.status !== 200) {
-					throw new Error('Oops... Something went wrong. Please try again.');
+					throw new Error('<strong>Oops!</strong> Please try again.');
 				}
 				this.wrapper.className += ' has-sent';
 			})

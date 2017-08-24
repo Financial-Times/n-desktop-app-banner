@@ -25,7 +25,6 @@ $white: oColorsGetPaletteColor('white');
 	display: flex;
 	flex-direction: row;
 	height: 40px;
-	margin-left: 80px;
 }
 
 .n-app-banner__device {
@@ -37,28 +36,22 @@ $white: oColorsGetPaletteColor('white');
 
 .n-app-banner__strapline {
 	flex: 1;
+	padding-left: 80px;
 
 	.enhanced & {
-		margin-left: 20px;
+		padding-left: 100px;
 	}
 }
 
-.n-app-banner__links {
-	line-height: 0;
-
-	.has-sent & {
-		display: none;
-	}
-}
 .n-app-banner__app-link {
 	display: inline-block;
 	margin-left: 20px;
 }
 
 .n-app-banner__form {
-  align-items: center;
-	display: flex;
+	align-items: center;
 	margin-bottom: 0;
+	position: relative;
 }
 
 .n-app-banner__button {
@@ -72,13 +65,14 @@ $white: oColorsGetPaletteColor('white');
 
 .n-app-banner__error-message {
 	@include oFormsMessage();
-	color: oColorsGetPaletteColor('crimson');
-	right: 0;
+	color: $white;
 	position: absolute;
-	top: 50px;
+	left: 20px;
+	top: 45px;
 
 	p {
 		@include oTypographySans($scale: -1);
+		margin-top: 0;
 	}
 }
 
