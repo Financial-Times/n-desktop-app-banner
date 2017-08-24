@@ -94,7 +94,7 @@ describe('DesktopAppBanner', () => {
 			fetchMock.post(desktopAppBanner.form.action, 500);
 
 			desktopAppBanner.submitForm().then(() => {
-				expect(desktopAppBanner.errorMessage.innerHTML).to.eql('<p>Oops... Something went wrong. Please try again.</p>');
+				expect(desktopAppBanner.errorMessage.innerHTML).to.eql('<p><strong>Oops!</strong> Please try again.</p>');
 				expect(desktopAppBanner.emailButton.disabled).to.be.false;
 
 				done();
