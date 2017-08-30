@@ -41,6 +41,10 @@ $white: oColorsGetPaletteColor('white');
 	.enhanced & {
 		padding-left: 100px;
 	}
+
+	p {
+		margin: 0;
+	}
 }
 
 .n-app-banner__app-link {
