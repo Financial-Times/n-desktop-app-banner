@@ -44,8 +44,8 @@ export default class DesktopAppBanner {
 
 			document.body.dispatchEvent(new CustomEvent('oTracking.event', {
 				detail: {
-					category: 'form',
-					action: 'submit',
+					category: 'component',
+					action: 'act',
 					messaging: 'desktop-app-banner'
 				},
 				bubbles: true
