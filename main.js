@@ -1,22 +1,25 @@
+const { getCurrentLayout } = require('o-grid');
+
 export default class DesktopAppBanner {
 
 	constructor () {
-		this.closeLink = document.querySelector('.js-app-banner-close');
-		this.emailButton = document.querySelector('.js-n-app-banner-button');
-		this.errorMessage = document.querySelector('.js-n-app-banner-error-message');
-		this.form = document.querySelector('.js-n-app-banner-form');
 		this.wrapper = document.querySelector('.js-n-app-banner-wrapper');
 
-		document.body.dispatchEvent(new CustomEvent('oTracking.event', {
-			detail: {
-				category: 'component',
-				action: 'view',
-				messaging: 'desktop-app-banner'
-			},
-			bubbles: true
-		}));
+		if(this.isShowable()) {
+			this.closeLink = document.querySelector('.js-app-banner-close');
+			this.emailButton = document.querySelector('.js-n-app-banner-button');
+			this.errorMessage = document.querySelector('.js-n-app-banner-error-message');
+			this.form = document.querySelector('.js-n-app-banner-form');
 
-		this.bindEvents();
+			this.trackEvent({ action: 'view' });
+
+			this.bindEvents();
+		} else {
+			// Might as well nuke the markup since it doesn't need to be there.
+			this.wrapper.remove();
+
+			this.trackEvent({ action: 'skip' });
+		}
 	}
 
 	bindEvents () {
@@ -25,15 +28,7 @@ export default class DesktopAppBanner {
 	}
 
 	handleCloseClick () {
-		const event = new CustomEvent('oTracking.event', {
-				detail: {
-					category: 'component',
-					action: 'close',
-					messaging: 'desktop-app-banner'
-				},
-				bubbles: true
-			});
-		document.body.dispatchEvent(event);
+		this.trackEvent({ action: 'close' });
 
 		this.wrapper.style.bottom = `-${this.wrapper.clientHeight}px`;
 	}
@@ -42,20 +37,17 @@ export default class DesktopAppBanner {
 		if (!this.emailButton.disabled) {
 			this.emailButton.disabled = 'disabled';
 
-			document.body.dispatchEvent(new CustomEvent('oTracking.event', {
-				detail: {
-					category: 'component',
-					action: 'act',
-					messaging: 'desktop-app-banner'
-				},
-				bubbles: true
-			}));
+			this.trackEvent({ action: 'act' });
 
 			this.submitForm();
 		}
 
 		e.preventDefault();
 		return false;
+	}
+
+	isShowable () {
+		return ['M','L','XL'].indexOf(getCurrentLayout()) !== -1;
 	}
 
 	submitForm () {
@@ -70,6 +62,17 @@ export default class DesktopAppBanner {
 				this.errorMessage.innerHTML = `<p>${e.message}</p>`;
 				this.emailButton.disabled = false;
 			});
+	}
+
+	trackEvent ({ action } = {}) {
+		document.body.dispatchEvent(new CustomEvent('oTracking.event', {
+			detail: {
+				category: 'component',
+				action,
+				messaging: 'desktop-app-banner'
+			},
+			bubbles: true
+		}));
 	}
 
 };
