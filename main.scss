@@ -6,18 +6,24 @@
 
 $teal: oColorsGetPaletteColor('teal');
 $white: oColorsGetPaletteColor('white');
+
 .n-app-banner {
 	@include oTypographySans($scale: 1);
 
 	background: $teal;
 	bottom: 0;
 	color: oColorsGetTextColor($teal);
+	display: none;
 	left: 0;
 	padding: 40px 0;
 	position: fixed;
 	transition: bottom 1s ease;
 	width: 100%;
 	z-index: 99;
+
+	@include oGridRespondTo(M) {
+		display: block;
+	}
 }
 
 .n-app-banner__container {
@@ -55,7 +61,12 @@ $white: oColorsGetPaletteColor('white');
 .n-app-banner__form {
 	align-items: center;
 	margin-bottom: 0;
+	margin-right: 20px;
 	position: relative;
+
+	@include oGridRespondTo(XL) {
+		margin-right: 0;
+	}
 }
 
 .n-app-banner__button {
@@ -106,9 +117,14 @@ $white: oColorsGetPaletteColor('white');
 	cursor: pointer;
 	position: absolute;
 	right: 0;
-	top: -20px;
+	top: -25px;
+
 
 	.enhanced & {
 		display: block;
+	}
+
+	@include oGridRespondTo(XL) {
+		right: 0;
 	}
 }
